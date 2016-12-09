@@ -7,8 +7,12 @@ module Enumerable
   	end
   end
 
-  # def my_each_with_index
-  # end
+  def my_each_with_index
+  	array = self.to_a
+  	(array.length).times do |index|
+  		yield(array[index], index)
+  	end
+  end
 
   # def my_select
   # end
@@ -34,4 +38,16 @@ module Enumerable
 end
 
 numbers = [1,2,3,4]
+
 numbers.my_each { |i| puts i * 3 }
+
+numbers.my_each_with_index { |element, index| puts "Value of #{element} at index #{index}" }
+
+
+
+
+
+
+
+
+
