@@ -5,7 +5,6 @@
 # right. 0 means they are equal. A positive result means the left element is greater. Use this to 
 # sort your array.
 
-
 def bubble_sort_by(array)
 	n = array.length
   loop do
