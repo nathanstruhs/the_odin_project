@@ -17,20 +17,20 @@ player_two = Player.new(player_two_name, "O")
 puts "#{player_one_name} is crosses. #{player_two_name} is noughts."
 
 board = Board.new
-board.display
 
 9.times do |i|
+	board.display
 	current_player = (i % 2 == 0) ? player_one : player_two 
 	puts "#{current_player.name}'s move."
-  current_move = board.process_move(gets.chomp).to_i\
-	board.move(current_player, $current_move)
-	board.display
+
+  current_move = board.process_move(gets.chomp)
+  while current_move == nil
+  	current_move = board.process_move(gets.chomp)
+  end
+
+	board.move(current_player, current_move)
 	if board.win?(current_player)
 		puts "#{current_player.name} wins!"
 		break
 	end
 end
-
-
-
-

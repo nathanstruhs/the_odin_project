@@ -40,6 +40,13 @@ class Board
 		end
 	end
 
+	def already_played?(input)
+		if @board[input] == "X" || @board[input] == "O"
+			puts "Those coordinates have already been played."
+			return true
+		end
+	end
+
 	def move(player, position)
 		@board[position] = player.type
 	end	
